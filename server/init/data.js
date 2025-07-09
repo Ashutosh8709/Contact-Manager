@@ -1,0 +1,34 @@
+const sampleContacts=[
+    {
+        name:'abc',
+        email:'abc@gmail.com',
+        phone:123
+    },
+    {
+        name:'xyz',
+        email:'xyz@gmail.com',
+        phone:456
+    },
+    {
+        name:'def',
+        email:'def@gmail.com',
+        phone:789
+    },
+    {
+        name:'ghi',
+        email:'ghi@email.com',
+        phone:101112
+    },
+    {
+        name:'jkl',
+        email:'jkl@email.com',
+        phone:131415
+    },
+    {
+        name:'mno',
+        email:'mno@gmail.com',
+        phone:161718
+    },
+];
+
+module.exports={data:sampleContacts};
