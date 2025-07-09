@@ -20,6 +20,7 @@ const corsOptions={
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 
 app.get("/",async(req,res)=>{
     const result=await Contact.find({});
@@ -32,8 +33,20 @@ app.delete("/delete/:id",async(req,res)=>{
 });
 
 app.post("/create",async(req,res)=>{
-    
+    const newContact=new Contact(req.body);
+    await newContact.save();
+    res.json(newContact);
 });
+
+app.get("/contacts/:id",async(req,res)=>{
+    const contact=await Contact.findById(req.params.id);
+    res.json(contact);
+});
+
+app.put("/edit/:id",async(req,res)=>{
+    const edittedContact=await Contact.findByIdAndUpdate(req.params.id,req.body);
+    res.json(edittedContact);
+})
 
 app.listen(8080,()=>{
     console.log("App is listening on port 8080");
