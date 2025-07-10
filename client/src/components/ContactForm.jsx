@@ -15,13 +15,14 @@ export default function ContactForm(){
 
     const handleSubmit=async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8080/create", form);
+    await axios.post("http://localhost:8080/create", form)
+    navigate('/');
     }
     return(
     <form onSubmit={handleSubmit} className="space-y-2 p-4">
       <input name="name" placeholder="Name" value={form.name} onChange={handleChange} className="input" required />
-      <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="input" />
-      <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} className="input" type='number'/>
+      <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="input" required/>
+      <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} className="input" type='number' required/>
       <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer" type='submit' onClick={()=>navigate('/')}>Add Contact</button>
 
     </form>

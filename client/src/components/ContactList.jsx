@@ -26,14 +26,14 @@ export default function ContactList() {
   };
 
   // Filter contacts based on searchTerm
-  const filteredContacts = contacts.filter((con) => {
+  const filteredContacts = searchTerm.trim()? contacts.filter((con) => {
     const q = searchTerm.toLowerCase();
     return (
       con.name.toLowerCase().includes(q) ||
       con.email.toLowerCase().includes(q) ||
       con.phone.includes(q)
     );
-  });
+  }):contacts;
 
   return (
     <div className="p-6">
